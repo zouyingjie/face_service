@@ -4,8 +4,7 @@
 
 
 from __future__ import division, unicode_literals, print_function
-
-from libs.face_api import openailabfaceapi
+from libs.openailab_faceapi.python import openailabfaceapi
 from settings.settings import PROJECT_HOME
 
 

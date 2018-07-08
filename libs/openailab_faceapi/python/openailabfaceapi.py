@@ -117,19 +117,19 @@ _openailabfaceapi.FaceRect_swigregister(FaceRect)
 
 def FaceExisted(jpegFileName):
     return _openailabfaceapi.FaceExisted(jpegFileName)
-# FaceExisted = _openailabfaceapi.FaceExisted
+FaceExisted = _openailabfaceapi.FaceExisted
 
 def FaceQualityOK(jpegFileName, rectangle, threshold):
     return _openailabfaceapi.FaceQualityOK(jpegFileName, rectangle, threshold)
-# FaceQualityOK = _openailabfaceapi.FaceQualityOK
+FaceQualityOK = _openailabfaceapi.FaceQualityOK
 
 def FaceIsSamePerson(jpegFileNameList, threshold):
     return _openailabfaceapi.FaceIsSamePerson(jpegFileNameList, threshold)
-# FaceIsSamePerson = _openailabfaceapi.FaceIsSamePerson
+FaceIsSamePerson = _openailabfaceapi.FaceIsSamePerson
 
 def BestFacePicture(jpegFileNameList, threshold):
     return _openailabfaceapi.BestFacePicture(jpegFileNameList, threshold)
-# BestFacePicture = _openailabfaceapi.BestFacePicture
+BestFacePicture = _openailabfaceapi.BestFacePicture
 # This file is compatible with both classic and new-style classes.
 
 
