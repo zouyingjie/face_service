@@ -47,8 +47,17 @@ from settings.settings import PROJECT_HOME
 # openailabfaceapi.initial("../log/")
 
 # check if there's a face in picture
+
+def face_existed(image):
+    return openailabfaceapi.FaceExisted(jpegFileName)
 jpegFileName="{project_home}/libs/openailab_faceapi/data/3_1.jpg".format(project_home=PROJECT_HOME)
-rect = openailabfaceapi.FaceExisted(jpegFileName)
+# rect = openailabfaceapi.FaceExisted(jpegFileName)
+# print("left:", rect.left)
+# print("top:", rect.top)
+# print("width:", rect.width)
+# print("height:", rect.height)
+
+rect = face_existed(jpegFileName)
 print("left:", rect.left)
 print("top:", rect.top)
 print("width:", rect.width)
