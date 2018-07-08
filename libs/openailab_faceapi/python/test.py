@@ -47,7 +47,7 @@ from settings.settings import PROJECT_HOME
 # openailabfaceapi.initial("../log/")
 
 # check if there's a face in picture
-
+PROJECT_HOME = "/home/chiyuan/projects/face_service"
 def face_existed(image):
     return openailabfaceapi.FaceExisted(jpegFileName)
 jpegFileName="{project_home}/libs/openailab_faceapi/data/3_1.jpg".format(project_home=PROJECT_HOME)
