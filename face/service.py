@@ -9,9 +9,9 @@ from settings.settings import PROJECT_HOME
 
 
 class FaceIdService(object):
-    def __init__(self):
-        path = PROJECT_HOME + "/data/logs/face_logs/"
-        openailabfaceapi.initial(path)
+    # def __init__(self):
+        # path = PROJECT_HOME + "/data/logs/face_logs/"
+        # openailabfaceapi.initial(path)
 
     # 获取图片的人脸矩阵
     def face_image_rectangle(self, image):
