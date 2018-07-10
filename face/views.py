@@ -17,7 +17,7 @@ class FaceValidApiView(QingChengApiGetMixin):
             "/home/chiyuan/projects/face_service/face/openailab_faceapi/data/3_4.jpg",
             "/home/chiyuan/projects/face_service/face/openailab_faceapi/data/3_5.jpg",
         ]
-        rect = openailabfaceapi.FaceExisted(image=image)
+        rect = openailabfaceapi.FaceExisted(image)
         return {"width": rect.width}
         # face_valid, error_code = self.get_model_service().face_valid(new_image=new_image, old_images=old_images)
         # json_data = {"valid": face_valid, "code": error_code}
