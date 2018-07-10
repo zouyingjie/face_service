@@ -5,7 +5,6 @@
 
 from __future__ import division, unicode_literals, print_function
 from libs.openailab_faceapi.python import openailabfaceapi
-from settings.settings import PROJECT_HOME
 
 
 class FaceIdService(object):
@@ -66,3 +65,9 @@ class FaceIdService(object):
             if self.is_same_person(old_images):
                 return True
         return False
+
+
+service = FaceIdService()
+print(service.face_existed("/home/chiyuan/projects/face_service/face/openailab_faceapi/data/3_1.jpg"))
+rect = service.face_image_rectangle("/home/chiyuan/projects/face_service/face/openailab_faceapi/data/3_1.jpg")
+print(rect.width)
