@@ -2,7 +2,7 @@ from django.conf.urls import patterns, url
 
 from django.contrib import admin
 
-from face.openailab_faceapi.python.views import FaceValidApiView
+from face.views import FaceValidApiView
 
 admin.autodiscover()
 
