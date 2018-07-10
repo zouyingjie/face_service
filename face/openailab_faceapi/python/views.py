@@ -1,7 +1,7 @@
 
 from orange.views import QingChengApiGetMixin
 
-from face.service import FaceIdService
+from face.openailab_faceapi.python.service import FaceIdService
 
 
 class FaceValidApiView(QingChengApiGetMixin):
