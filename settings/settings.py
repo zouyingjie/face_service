@@ -21,7 +21,7 @@ PROJECT_HOME = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 SECRET_KEY = '75qa_xj0s@eb7p1$@yzgvm1f$%_p36rd4dp-(vzy9e6*xc28cf'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = False
 
