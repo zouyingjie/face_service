@@ -5,6 +5,12 @@ import openailabfaceapi
 
 
 class FaceIdService(object):
+
+    VALID_SUCCESS = 0
+    VALID_ERROR_NO_ONE = 1
+    VALID_ERROR_QUANTITY = 2
+    VALID_ERROR_SAME_PERSON = 3
+
     # def __init__(self):
         # path = PROJECT_HOME + "/data/logs/face_logs/"
         # openailabfaceapi.initial(path)
@@ -19,7 +25,7 @@ class FaceIdService(object):
         return openailabfaceapi.FaceExisted(image)
 
     # 判断图片中是否有人脸
-    def face_existed(self, image, rectangle=None):
+    def face_existed(self, image=None, rectangle=None):
         """
         判断图片是否有人脸
         :param image:
@@ -56,9 +62,17 @@ class FaceIdService(object):
         return True
 
     def face_valid(self, image=None, old_images=None):
-        face_ok = self.face_quality_ok(image=image)
-        if face_ok and old_images is not None:
+
+        rect = self.face_image_rectangle(image=image)
+        if not self.face_existed(rectangle=rect):
+            return False, self.VALID_ERROR_NO_ONE
+
+        if not self.face_quality_ok(rectangle=rect):
+            return False, self.VALID_ERROR_QUANTITY
+
+        if old_images is not None:
             old_images.append(image)
-            if self.is_same_person(old_images):
-                return True
-        return False
+            if not self.is_same_person(old_images):
+                return False, self.VALID_ERROR_SAME_PERSON
+
+        return True, self.VALID_SUCCESS
