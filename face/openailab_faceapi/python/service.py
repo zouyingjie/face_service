@@ -1,9 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# -*- coding: utf-8 -*-
-
-
-from __future__ import division, unicode_literals, print_function
+# from __future__ import division, unicode_literals, print_function
 import openailabfaceapi
 
 
