@@ -76,3 +76,5 @@ class FaceIdService(object):
                 return False, self.VALID_ERROR_SAME_PERSON
 
         return True, self.VALID_SUCCESS
+
+print(FaceIdService().face_image_rectangle("/home/chiyuan/projects/face_service/face/openailab_faceapi/data/3_1.jpg").width)
