@@ -4,7 +4,7 @@
 
 
 from __future__ import division, unicode_literals, print_function
-from libs.openailab_faceapi.python import openailabfaceapi
+import openailabfaceapi
 
 
 class FaceIdService(object):
