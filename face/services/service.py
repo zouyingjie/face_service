@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # from __future__ import division, unicode_literals, print_function
-from libs.openailab_faceapi.python import openailabfaceapi
+from openailab_faceapi.python import openailabfaceapi
 
 
 class FaceIdService(object):
