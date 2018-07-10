@@ -1,12 +1,12 @@
 
 from orange.views import QingChengApiGetMixin
 
-from face.services.service import FaceIdService
-
+from face.service import FaceIdService
 
 class FaceValidApiView(QingChengApiGetMixin):
 
     get_model_service = FaceIdService
+
     def get_action_format(self, params, request, *args, **kwargs):
         # old_images = params.pop("old_images", None)
         # new_image = params.pop("new_image", None)
