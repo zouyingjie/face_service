@@ -21,11 +21,11 @@ PROJECT_HOME = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 SECRET_KEY = '75qa_xj0s@eb7p1$@yzgvm1f$%_p36rd4dp-(vzy9e6*xc28cf'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', "182.92.192.209"]
+ALLOWED_HOSTS = ['127.0.0.1', "101.236.34.86"]
 
 
 # Application definition
