@@ -2,6 +2,7 @@
 from orange.views import QingChengApiGetMixin
 
 from face.service import FaceIdService
+from settings.settings import PROJECT_HOME
 
 class FaceValidApiView(QingChengApiGetMixin):
 
@@ -9,12 +10,6 @@ class FaceValidApiView(QingChengApiGetMixin):
 
     def get_action_format(self, params, request, *args, **kwargs):
 
-        image = "/home/chiyuan/projects/face_service/face/openailab_faceapi/data/3_1.jpg"
-        old_images = [
-            "/home/chiyuan/projects/face_service/face/openailab_faceapi/data/3_2.jpg",
-            "/home/chiyuan/projects/face_service/face/openailab_faceapi/data/3_3.jpg",
-            "/home/chiyuan/projects/face_service/face/openailab_faceapi/data/3_4.jpg",
-            "/home/chiyuan/projects/face_service/face/openailab_faceapi/data/3_5.jpg",
-        ]
+        image = "{project_home}/data/image/{image}".format(PROJECT_HOME, "3_1.jpg")
         rect = self.get_model_service().face_image_rectangle(image=image)
         return {"width": rect.width}
