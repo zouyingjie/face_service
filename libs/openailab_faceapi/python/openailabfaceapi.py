@@ -5,12 +5,14 @@
 # the SWIG interface file instead.
 
 from sys import version_info as _swig_python_version_info
+from settings.settings import PROJECT_HOME
 if _swig_python_version_info < (2, 7, 0):
     raise RuntimeError('Python 2.7 or later required')
 def swig_import_helper():
     import importlib
     pkg = __name__.rpartition('.')[0]
-    mname = '.'.join((pkg, '_openailabfaceapi')).lstrip('.')
+    # mname = '.'.join((pkg, '_openailabfaceapi')).lstrip('.')
+    mname = "{project_home}/libs/openailab_faceapi/python/_openailabfaceapi".format(project_home=PROJECT_HOME)
     try:
         return importlib.import_module(mname)
     except ImportError:
@@ -19,10 +21,10 @@ _openailabfaceapi = swig_import_helper()
 del swig_import_helper
 del _swig_python_version_info
 
-try:
-    import builtins as __builtin__
-except ImportError:
-    import __builtin__
+# try:
+#     import builtins as __builtin__
+# except ImportError:
+import __builtin__
 
 def _swig_setattr_nondynamic(self, class_type, name, value, static=1):
     if name == "thisown":
