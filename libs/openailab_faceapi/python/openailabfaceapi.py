@@ -72,8 +72,8 @@ except __builtin__.Exception:
     _newclass = 0
 
 
-def initial(log_path):
-    return _openailabfaceapi.initial(log_path)
+def initial(log_path, model_path):
+    return _openailabfaceapi.initial(log_path, model_path)
 initial = _openailabfaceapi.initial
 
 def deinitial():

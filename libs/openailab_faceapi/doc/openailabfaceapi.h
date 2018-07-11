@@ -2,10 +2,11 @@
 //初始化模块
 // Parameters:
 //   log_path -- the log file path
+//   model_path -- the model files' path
 // return:
 //   0 -- for OK
 //   < 0 -- for error
-int initial(char* log_path);
+int initial(char* log_path, char* model_path);
 //结束模块
 // return:
 //   0 -- for OK

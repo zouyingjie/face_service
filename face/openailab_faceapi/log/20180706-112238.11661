@@ -1,4 +1,0 @@
-Log file created at: 2018/07/06 11:22:38
-Running on machine: ubuntu
-Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
-F0706 11:22:38.980237 11661 net.cpp:58] Check failed: fid.is_open() File not found: ../models/rec_p

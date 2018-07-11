@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 # from __future__ import division, unicode_literals, print_function
-from openailab_faceapi.python import openailabfaceapi
-
+from libs.openailab_faceapi.python import openailabfaceapi
+from settings.settings import PROJECT_HOME
 
 class FaceIdService(object):
 
@@ -11,9 +11,10 @@ class FaceIdService(object):
     VALID_ERROR_QUANTITY = 2
     VALID_ERROR_SAME_PERSON = 3
 
-    # def __init__(self):
-        # path = PROJECT_HOME + "/data/logs/face_logs/"
-        # openailabfaceapi.initial(path)
+    def __init__(self):
+        log_path = "{project_home}/data/log/".format(project_home=PROJECT_HOME)
+        model_path = "{project_home}/libs/openailab_faceapi/models".format(project_home=PROJECT_HOME)
+        openailabfaceapi.initial(log_path, model_path)
 
     # 获取图片的人脸矩阵
     def face_image_rectangle(self, image):
@@ -76,5 +77,3 @@ class FaceIdService(object):
                 return False, self.VALID_ERROR_SAME_PERSON
 
         return True, self.VALID_SUCCESS
-
-print(FaceIdService().face_image_rectangle("/home/chiyuan/projects/face_service/face/openailab_faceapi/data/3_1.jpg").width)
