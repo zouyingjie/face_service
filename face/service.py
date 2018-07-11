@@ -12,8 +12,9 @@ class FaceIdService(object):
     VALID_ERROR_SAME_PERSON = 3
 
     def __init__(self):
-        log_path = "{project_home}/data/log/".format(project_home=PROJECT_HOME)
+        log_path = "{project_home}/data/logs/".format(project_home=PROJECT_HOME)
         model_path = "{project_home}/libs/openailab_faceapi/models".format(project_home=PROJECT_HOME)
+
         openailabfaceapi.initial(log_path, model_path)
 
     # 获取图片的人脸矩阵
