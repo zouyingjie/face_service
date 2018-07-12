@@ -79,7 +79,7 @@ class FaceIdService(object):
             old_photos.append(photo)
             if not self.is_same_person(phtots=old_photos):
                 return False, self.VALID_ERROR_SAME_PERSON
-
+        openailabfaceapi.deinitial()
         return True, self.VALID_SUCCESS
 
     @classmethod
