@@ -68,17 +68,18 @@ class FaceIdService(object):
     def face_valid(self, photo=None, old_photos=None):
 
         rect = self.face_image_rectangle(image=photo)
+        print(rect.width + "===")
         if not self.face_existed(rectangle=rect):
             return False, self.VALID_ERROR_NO_ONE
-
+        print(111)
         if not self.face_quality_ok(rectangle=rect):
             return False, self.VALID_ERROR_QUANTITY
-
+        print(222)
         if old_photos is not None:
             old_photos.append(photo)
             if not self.is_same_person(old_photos):
                 return False, self.VALID_ERROR_SAME_PERSON
-
+        print(333)
         return True, self.VALID_SUCCESS
 
     def down_photos(self, photo_url=None):
