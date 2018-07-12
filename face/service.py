@@ -43,7 +43,7 @@ class FaceIdService(object):
         return True
 
     # 判断图片中的人脸是否合格，
-    def face_quality_ok(self, photo=None, rectangle=None, threshold=0.8):
+    def face_quality_ok(self, photo=None, rectangle=None, threshold=0.1):
         """
 
         :param image: 图片
