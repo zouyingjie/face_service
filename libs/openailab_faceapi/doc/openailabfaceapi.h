@@ -22,6 +22,7 @@ struct FaceRect{
     int top;
     int width;
     int height;
+    int faceNum;
 };
 struct FaceRect FaceExisted(char* jpegFileName); //出错时， width == 0
 //人脸照片的质量判断，人脸照片质量是否影响其作为最优注册人脸照片（对识别所需的特征无损）；

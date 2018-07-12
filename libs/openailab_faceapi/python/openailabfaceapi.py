@@ -101,6 +101,10 @@ class FaceRect(_object):
     __swig_getmethods__["height"] = _openailabfaceapi.FaceRect_height_get
     if _newclass:
         height = property(_openailabfaceapi.FaceRect_height_get, _openailabfaceapi.FaceRect_height_set)
+    __swig_setmethods__["faceNum"] = _openailabfaceapi.FaceRect_faceNum_set
+    __swig_getmethods__["faceNum"] = _openailabfaceapi.FaceRect_faceNum_get
+    if _newclass:
+        faceNum = property(_openailabfaceapi.FaceRect_faceNum_get, _openailabfaceapi.FaceRect_faceNum_set)
 
     def __init__(self):
         this = _openailabfaceapi.new_FaceRect()

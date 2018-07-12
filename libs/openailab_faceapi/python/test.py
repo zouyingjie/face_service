@@ -1,15 +1,29 @@
 import openailabfaceapi
+import os
+import sys
+
+ABSPATH=None
+
+if __name__ == '__main__':
+    ABSPATH=os.path.abspath(sys.argv[0]) 
+
+print(ABSPATH)
+
+path,f_name=os.path.split(ABSPATH)
+print(path)
+print(f_name)
 
 # initialization
-openailabfaceapi.initial("../log/", "../models")
+openailabfaceapi.initial(path+"/../log/", path+"/../models")
 
 # check if there's a face in picture
-jpegFileName="../data/3_1.jpg"
+jpegFileName=path+"/../data/1.jpg"
 rect = openailabfaceapi.FaceExisted(jpegFileName)
 print("left:", rect.left)
 print("top:", rect.top)
 print("width:", rect.width)
 print("height:", rect.height)
+print("faceNum:", rect.faceNum)
 if rect.width == 0 :
     print("face is not existed")
 else :
@@ -24,7 +38,7 @@ else :
     print("picture is not good", ret)
 
 # check if the same person in lots of pictures
-jpegFileNameList=["../data/3_1.jpg", "../data/3_2.jpg", "../data/3_3.jpg", "../data/3_4.jpg", "../data/3_5.jpg"]
+jpegFileNameList=[path+"/../data/3_1.jpg", path+"/../data/3_2.jpg", path+"/../data/3_3.jpg", path+"/../data/3_4.jpg", path+"/../data/3_5.jpg"]
 threshold = 0.50
 ret = openailabfaceapi.FaceIsSamePerson(jpegFileNameList, threshold)
 if ret == 0 :
