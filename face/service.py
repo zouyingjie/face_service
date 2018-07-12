@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 # from __future__ import division, unicode_literals, print_function
-from libs.openailab_faceapi.python import openailabfaceapi
 from settings.settings import PROJECT_HOME
 
+from libs.openailab_faceapi.python import openailabfaceapi
 class FaceIdService(object):
 
     VALID_SUCCESS = 0
