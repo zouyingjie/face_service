@@ -25,7 +25,7 @@ DEBUG = False
 
 TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', "101.236.34.86"]
+ALLOWED_HOSTS = ['127.0.0.1', "101.236.34.86", 'facetest.qingchengfit.cn']
 
 
 # Application definition
