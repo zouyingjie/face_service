@@ -6,7 +6,6 @@ class FaceValidApiView(QingChengApiGetMixin):
 
     def get_request_params(self, request, *args, **kwargs):
         params = self.get_params(request, *args, **kwargs)
-        # params["photo"] = "{project_home}/data/image/3_1.jpg".format(project_home=PROJECT_HOME)
         photo = params.pop('photo', None)
         old_photos = params.pop('old_photos', None)
         photo_path = FaceIdService.down_photos(photo_url=photo)
@@ -22,7 +21,5 @@ class FaceValidApiView(QingChengApiGetMixin):
     def get_action_format(self, params, request, *args, **kwargs):
         photo = params.pop('photo', None)
         service = FaceIdService()
-        rect = service.photo_rectangle(photo=photo)
-        # return {"width": rect.width}
-        valid, code = service.face_valid(photo=photo, old_photos=None)
+        valid, code = service.face_valid(photo=photo)
         return {"valid": valid, "code": code}
