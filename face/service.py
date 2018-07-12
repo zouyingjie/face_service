@@ -37,7 +37,7 @@ class FaceIdService(object):
         :return:
         """
         if rectangle is None:
-            rectangle = self.face_image_rectangle(photo)
+            rectangle = self.photo_rectangle(photo)
         if rectangle.width == 0:
             return False
         return True
