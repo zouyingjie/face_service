@@ -66,7 +66,7 @@ class FaceIdService(object):
         return True
 
     def face_valid(self, photo=None, old_photos=None):
-
+        print(photo)
         rect = self.face_image_rectangle(image=photo)
         print(rect.width + "===")
         if not self.face_existed(rectangle=rect):
