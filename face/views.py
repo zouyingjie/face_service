@@ -25,11 +25,11 @@ class FaceValidApiView(QingChengApiGetMixin):
         # result = self.get_model_service().face_valid(**params)
         # return result
         service = FaceIdService()
-        image = "/home/chiyuan/openailab_faceapi/data/3_1.jpg"
-        rect = service.face_image_rectangle(image=image)
+        photo = "/home/chiyuan/openailab_faceapi/data/3_1.jpg"
+        rect = service.face_image_rectangle(image=photo)
         print(rect.width)
-        print(service.face_quality_ok(image=image))
-        print(service.face_existed(image=image))
+        print(service.face_quality_ok(image=photo))
+        print(service.face_existed(image=photo))
         # return {"width": rect.width}
-        valid, code = service.face_valid(photo=image)
+        valid, code = service.face_valid(photo=photo)
         return {"valid": valid, "code": code}
