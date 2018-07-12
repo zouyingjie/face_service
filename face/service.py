@@ -20,16 +20,16 @@ class FaceIdService(object):
         openailabfaceapi.initial(log_path, model_path)
 
     # 获取图片的人脸矩阵
-    def face_image_rectangle(self, image=None):
+    def photo_rectangle(self, photo=None):
         """
         获取图片的人脸矩阵
         :param image:
         :return:
         """
-        return openailabfaceapi.FaceExisted(image)
+        return openailabfaceapi.FaceExisted(photo)
 
     # 判断图片中是否有人脸
-    def face_existed(self, image=None, rectangle=None):
+    def face_existed(self, photo=None, rectangle=None):
         """
         判断图片是否有人脸
         :param image:
@@ -37,13 +37,13 @@ class FaceIdService(object):
         :return:
         """
         if rectangle is None:
-            rectangle = self.face_image_rectangle(image)
+            rectangle = self.face_image_rectangle(photo)
         if rectangle.width == 0:
             return False
         return True
 
     # 判断图片中的人脸是否合格，
-    def face_quality_ok(self, image=None, rectangle=None, threshold=0.8):
+    def face_quality_ok(self, photo=None, rectangle=None, threshold=0.8):
         """
 
         :param image: 图片
@@ -52,34 +52,31 @@ class FaceIdService(object):
         :return:
         """
         if rectangle is None:
-            rectangle = self.face_image_rectangle(image)
+            rectangle = self.photo_rectangle(photo)
 
-        if not self.face_existed(image, rectangle):
+        if not self.face_existed(photo, rectangle):
             return False
-        return openailabfaceapi.FaceQualityOK(image, rectangle, threshold)
+        return openailabfaceapi.FaceQualityOK(photo, rectangle, threshold)
 
     # 判断多张照片是否为同一个人
-    def is_same_person(self, images=None, threshold=0.5):
-        ret = openailabfaceapi.FaceIsSamePerson(images, threshold)
+    def is_same_person(self, phtots=None, threshold=0.5):
+        ret = openailabfaceapi.FaceIsSamePerson(phtots, threshold)
         if ret == 0:
             return False
         return True
 
     def face_valid(self, photo=None, old_photos=None):
-        print(photo)
-        # rect = self.face_image_rectangle(image=photo)
-        # print(rect.width + "===")
-        if not self.face_existed(image=photo):
+        if not self.face_existed(photo=photo):
             return False, self.VALID_ERROR_NO_ONE
-        print(111)
-        if not self.face_quality_ok(image=photo):
+
+        if not self.face_quality_ok(photo=photo):
             return False, self.VALID_ERROR_QUANTITY
-        print(222)
+
         if old_photos is not None:
             old_photos.append(photo)
-            if not self.is_same_person(images=old_photos):
+            if not self.is_same_person(phtots=old_photos):
                 return False, self.VALID_ERROR_SAME_PERSON
-        print(333)
+
         return True, self.VALID_SUCCESS
 
     def down_photos(self, photo_url=None):
