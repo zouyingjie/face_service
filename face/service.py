@@ -56,12 +56,15 @@ class FaceIdService(object):
 
         if not self.face_existed(photo, rectangle):
             return False
-        return openailabfaceapi.FaceQualityOK(photo, rectangle, threshold)
+        result = openailabfaceapi.FaceQualityOK(photo, rectangle, threshold)
+        if result == 0:
+            return True
+        return False
 
     # 判断多张照片是否为同一个人
     def is_same_person(self, phtots=None, threshold=0.5):
-        ret = openailabfaceapi.FaceIsSamePerson(phtots, threshold)
-        if ret == 0:
+        result = openailabfaceapi.FaceIsSamePerson(phtots, threshold)
+        if result == 0:
             return False
         return True
 
