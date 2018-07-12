@@ -1,11 +1,24 @@
 
 from orange.views import QingChengApiGetMixin
 from face.service import FaceIdService
-from settings.settings import PROJECT_HOME
 
 class FaceValidApiView(QingChengApiGetMixin):
 
+    def get_request_params(self, request, *args, **kwargs):
+        params = self.get_params(request, *args, **kwargs)
+        photo = params.pop('photo', None)
+        old_photos = params.pop('old_photos', None)
+        service = FaceIdService()
+        photo_path = service.down_photos(photo_url=photo)
+        params['photo'] = photo_path
+        if old_photos is not None:
+            old_photo_paths = []
+            for photo in old_photos:
+                path = service.down_photos(photo_url=photo)
+                old_photo_paths.append(path)
+            params['old_photos'] = old_photo_paths
+
     def get_action_format(self, params, request, *args, **kwargs):
-        image = "{project_home}/data/image/{image}".format(PROJECT_HOME, "3_1.jpg")
-        rect = FaceIdService().face_image_rectangle(image=image)
-        return {"width": rect.width}
+        result = self.get_model_service().face_valid(**params)
+        return result
+

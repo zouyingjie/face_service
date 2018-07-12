@@ -4,6 +4,7 @@
 from settings.settings import PROJECT_HOME
 
 from libs.openailab_faceapi.python import openailabfaceapi
+
 class FaceIdService(object):
 
     VALID_SUCCESS = 0
@@ -64,18 +65,29 @@ class FaceIdService(object):
             return False
         return True
 
-    def face_valid(self, image=None, old_images=None):
+    def face_valid(self, photo=None, old_photos=None):
 
-        rect = self.face_image_rectangle(image=image)
+        rect = self.face_image_rectangle(image=photo)
         if not self.face_existed(rectangle=rect):
             return False, self.VALID_ERROR_NO_ONE
 
         if not self.face_quality_ok(rectangle=rect):
             return False, self.VALID_ERROR_QUANTITY
 
-        if old_images is not None:
-            old_images.append(image)
-            if not self.is_same_person(old_images):
+        if old_photos is not None:
+            old_photos.append(photo)
+            if not self.is_same_person(old_photos):
                 return False, self.VALID_ERROR_SAME_PERSON
 
         return True, self.VALID_SUCCESS
+
+    def down_photos(self, photo_url=None):
+        from settings.settings import PROJECT_HOME
+        import requests
+        r = requests.get(photo_url, stream=True)
+        image_url = "{project_home}/data/image/{image}.jpg".format(project_home=PROJECT_HOME,
+                                                             image=photo_url)
+        with open(image_url, 'wb') as f:
+            for chunk in r.iter_content(chunk_size=32):
+                f.write(chunk)
+        return image_url
