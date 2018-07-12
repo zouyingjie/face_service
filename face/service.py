@@ -20,7 +20,7 @@ class FaceIdService(object):
         openailabfaceapi.initial(log_path, model_path)
 
     # 获取图片的人脸矩阵
-    def face_image_rectangle(self, image):
+    def face_image_rectangle(self, image=None):
         """
         获取图片的人脸矩阵
         :param image:
@@ -43,7 +43,7 @@ class FaceIdService(object):
         return True
 
     # 判断图片中的人脸是否合格，
-    def face_quality_ok(self, image, rectangle=None, threshold=0.8):
+    def face_quality_ok(self, image=None, rectangle=None, threshold=0.8):
         """
 
         :param image: 图片
@@ -59,7 +59,7 @@ class FaceIdService(object):
         return openailabfaceapi.FaceQualityOK(image, rectangle, threshold)
 
     # 判断多张照片是否为同一个人
-    def is_same_person(self, images, threshold=0.5):
+    def is_same_person(self, images=None, threshold=0.5):
         ret = openailabfaceapi.FaceIsSamePerson(images, threshold)
         if ret == 0:
             return False
@@ -77,7 +77,7 @@ class FaceIdService(object):
         print(222)
         if old_photos is not None:
             old_photos.append(photo)
-            if not self.is_same_person(old_photos):
+            if not self.is_same_person(images=old_photos):
                 return False, self.VALID_ERROR_SAME_PERSON
         print(333)
         return True, self.VALID_SUCCESS
