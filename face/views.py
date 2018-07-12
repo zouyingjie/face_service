@@ -7,7 +7,7 @@ class FaceValidApiView(QingChengApiGetMixin):
 
     def get_request_params(self, request, *args, **kwargs):
         params = self.get_params(request, *args, **kwargs)
-        params["photo"] = "{project_home}/data/image/3_1.jpg".format(project_home=PROJECT_HOME)
+        # params["photo"] = "{project_home}/data/image/3_1.jpg".format(project_home=PROJECT_HOME)
         photo = params.pop('photo', None)
         old_photos = params.pop('old_photos', None)
         service = FaceIdService()
