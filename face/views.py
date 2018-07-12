@@ -10,13 +10,12 @@ class FaceValidApiView(QingChengApiGetMixin):
         # params["photo"] = "{project_home}/data/image/3_1.jpg".format(project_home=PROJECT_HOME)
         photo = params.pop('photo', None)
         old_photos = params.pop('old_photos', None)
-        service = FaceIdService()
-        photo_path = service.down_photos(photo_url=photo)
+        photo_path = FaceIdService.down_photos(photo_url=photo)
         params['photo'] = photo_path
         if old_photos is not None:
             old_photo_paths = []
             for photo in old_photos:
-                path = service.down_photos(photo_url=photo)
+                path = FaceIdService.down_photos(photo_url=photo)
                 old_photo_paths.append(path)
             params['old_photos'] = old_photo_paths
         return params

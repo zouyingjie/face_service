@@ -79,7 +79,8 @@ class FaceIdService(object):
 
         return True, self.VALID_SUCCESS
 
-    def down_photos(self, photo_url=None):
+    @classmethod
+    def down_photos(cls, photo_url=None):
         from settings.settings import PROJECT_HOME
         import requests
         from libs.datetimes import datetime_now, datetime_to_str
