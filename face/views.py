@@ -28,5 +28,5 @@ class FaceValidApiView(QingChengApiGetMixin):
         image = "/home/chiyuan/openailab_faceapi/data/3_1.jpg"
         rect = service.face_image_rectangle(image=image)
         print(rect.width)
-        result = service.face_valid(image=image)
+        result = service.face_valid(photo=image)
         return result
