@@ -16,7 +16,7 @@ tmp/*
 *.mo
 *.db
 *.log
-data/*
+data/logs/*
 db/
 test_db/
 .vagrant
