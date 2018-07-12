@@ -31,5 +31,6 @@ class FaceValidApiView(QingChengApiGetMixin):
         print(service.face_quality_ok(image=photo))
         print(service.face_existed(image=photo))
         # return {"width": rect.width}
-        valid, code = service.face_valid(photo=photo)
-        return {"valid": valid, "code": code}
+        service.face_valid(photo=photo, old_photos=None)
+        return {"width": rect.width}
+        # return {"valid": valid, "code": code}
