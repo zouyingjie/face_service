@@ -7,25 +7,26 @@ class FaceValidApiView(QingChengApiGetMixin):
 
     def get_request_params(self, request, *args, **kwargs):
         params = self.get_params(request, *args, **kwargs)
-        # params["photo"] = "{project_home}/data/image/3_1.jpg".format(project_home=PROJECT_HOME)
-        # photo = params.pop('photo', None)
-        # old_photos = params.pop('old_photos', None)
-        # service = FaceIdService()
-        # photo_path = service.down_photos(photo_url=photo)
-        # params['photo'] = photo_path
-        # if old_photos is not None:
-        #     old_photo_paths = []
-        #     for photo in old_photos:
-        #         path = service.down_photos(photo_url=photo)
-        #         old_photo_paths.append(path)
-        #     params['old_photos'] = old_photo_paths
+        params["photo"] = "{project_home}/data/image/3_1.jpg".format(project_home=PROJECT_HOME)
+        photo = params.pop('photo', None)
+        old_photos = params.pop('old_photos', None)
+        service = FaceIdService()
+        photo_path = service.down_photos(photo_url=photo)
+        params['photo'] = photo_path
+        if old_photos is not None:
+            old_photo_paths = []
+            for photo in old_photos:
+                path = service.down_photos(photo_url=photo)
+                old_photo_paths.append(path)
+            params['old_photos'] = old_photo_paths
         return params
 
     def get_action_format(self, params, request, *args, **kwargs):
+        photo = params.pop('phtot', None)
         # result = self.get_model_service().face_valid(**params)
         # return result
         service = FaceIdService()
-        photo = "/home/chiyuan/openailab_faceapi/data/3_1.jpg"
+        # photo = "/home/chiyuan/openailab_faceapi/data/3_1.jpg"
         rect = service.photo_rectangle(photo=photo)
         print(rect.width)
         print(service.face_quality_ok(photo=photo))
