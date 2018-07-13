@@ -96,13 +96,12 @@ class FaceIdService(object):
         from settings.settings import PROJECT_HOME
         import requests
         from libs.datetimes import datetime_now, datetime_to_str
-        # r = requests.get(photo_url, stream=True)
-        r = requests.get(photo_url)
+        r = requests.get(photo_url, stream=True)
         image_name = datetime_to_str(datetime_now())
         image_url = "{project_home}/data/image/{image}.jpg".format(project_home=PROJECT_HOME,
                                                              image=image_name)
         print(image_url)
         with open(image_url, 'wb') as f:
-            # for chunk in r.iter_content(chunk_size=32):
-            f.write(r)
+            for chunk in r.iter_content(chunk_size=32):
+                f.write(chunk)
         return image_url
