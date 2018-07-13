@@ -105,3 +105,6 @@ class FaceIdService(object):
             for chunk in r.iter_content(chunk_size=32):
                 f.write(chunk)
         return image_url
+
+    def deinitial(self):
+        openailabfaceapi.deinitial()
