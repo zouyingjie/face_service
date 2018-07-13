@@ -12,6 +12,17 @@ class FaceIdService(object):
     VALID_ERROR_QUANTITY = 2
     VALID_ERROR_SAME_PERSON = 3
 
+    FACE_OK = 0
+    FACE_ERROR_NOT_CLEAR = 1  # 图像不清晰
+    FACE_ERROR_ANGLE = 2  # 角度不合理
+    FACE_ERROR_OVER_LEFT = 3  # 超过最大左转角度
+    FACE_ERROR_OVER_RIGHT = 4  # 超过最大右转角度
+    FACE_ERROR_OVER_UP = 5  # 超过最大上仰角度
+    FACE_ERROR_OVER_DOWN = 6  # 超过最大俯视角度
+    FACE_ERROR_HORIZONTAL_ROTATION = 7  # 超过最大水平旋转角度
+    FACE_ERROR_FACE_NO_EXIST = 8  # 没有检测到人脸
+    FACE_ERROR_NOT_SAME = 9  # 不是同一个人
+
     def __init__(self):
         log_path = "{project_home}/data/logs/".format(project_home=PROJECT_HOME)
         model_path = "{project_home}/libs/openailab_faceapi/models".format(project_home=PROJECT_HOME)
@@ -57,9 +68,7 @@ class FaceIdService(object):
         if not self.face_existed(photo, rectangle):
             return False
         result = openailabfaceapi.FaceQualityOK(photo, rectangle, threshold)
-        if result == 0:
-            return True
-        return False
+        return result
 
     # 判断多张照片是否为同一个人
     def is_same_person(self, phtots=None, threshold=0.5):
@@ -70,17 +79,17 @@ class FaceIdService(object):
 
     def face_valid(self, photo=None, old_photos=None):
         if not self.face_existed(photo=photo):
-            return False, self.VALID_ERROR_NO_ONE
+            return False, self.FACE_ERROR_FACE_NO_EXIST
 
-        if not self.face_quality_ok(photo=photo):
-            return False, self.VALID_ERROR_QUANTITY
-
-        if old_photos is not None:
-            old_photos.append(photo)
-            if not self.is_same_person(phtots=old_photos):
-                return False, self.VALID_ERROR_SAME_PERSON
-        openailabfaceapi.deinitial()
-        return True, self.VALID_SUCCESS
+        face_quality = self.face_quality_ok(photo=photo)
+        if face_quality == self.FACE_OK:
+            if old_photos is not None:
+                old_photos.append(photo)
+                if not self.is_same_person(phtots=old_photos):
+                    return False, self.VALID_ERROR_SAME_PERSON
+            return True, self.FACE_OK
+        else:
+            return False, face_quality
 
     @classmethod
     def down_photos(cls, photo_url=None):

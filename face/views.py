@@ -21,5 +21,5 @@ class FaceValidApiView(QingChengApiGetMixin):
     def get_action_format(self, params, request, *args, **kwargs):
         photo = params.pop('photo', None)
         service = FaceIdService()
-        valid, code = service.face_valid(photo=photo)
-        return {"valid": valid, "code": code}
+        is_valid, code = service.face_valid(photo=photo)
+        return {"is_valid": is_valid, "code": code}
