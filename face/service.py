@@ -26,9 +26,7 @@ class FaceIdService(object):
     def __init__(self):
         log_path = "{project_home}/data/logs/".format(project_home=PROJECT_HOME)
         model_path = "{project_home}/libs/openailab_faceapi/models".format(project_home=PROJECT_HOME)
-        print(log_path)
-        print(model_path)
-        openailabfaceapi.initial(log_path, model_path)
+        openailabfaceapi.initial("", model_path)
 
     # 获取图片的人脸矩阵
     def photo_rectangle(self, photo=None):
