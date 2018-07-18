@@ -1,0 +1,55 @@
+Log file created at: 2018/07/11 14:03:38
+Running on machine: ubuntu
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0711 14:03:38.051772  1802 upgrade_proto.cpp:77] Attempting to upgrade batch norm layers using deprecated params: ../models/rec_c
+I0711 14:03:38.062507  1802 upgrade_proto.cpp:80] Successfully upgraded batch norm layers using deprecated params.
+I0711 14:03:38.067551  1802 upgrade_proto.cpp:67] Attempting to upgrade input file specified using deprecated input fields: ../models/fnet_p
+I0711 14:03:38.067564  1802 upgrade_proto.cpp:70] Successfully upgraded file specified using deprecated input fields.
+W0711 14:03:38.067565  1802 upgrade_proto.cpp:72] Note that future Caffe releases will only support input layers and not input fields.
+I0711 14:03:38.074750  1802 upgrade_proto.cpp:67] Attempting to upgrade input file specified using deprecated input fields: ../models/snet_p
+I0711 14:03:38.074759  1802 upgrade_proto.cpp:70] Successfully upgraded file specified using deprecated input fields.
+W0711 14:03:38.074761  1802 upgrade_proto.cpp:72] Note that future Caffe releases will only support input layers and not input fields.
+I0711 14:03:38.089465  1802 upgrade_proto.cpp:67] Attempting to upgrade input file specified using deprecated input fields: ../models/tnet_p
+I0711 14:03:38.089474  1802 upgrade_proto.cpp:70] Successfully upgraded file specified using deprecated input fields.
+W0711 14:03:38.089476  1802 upgrade_proto.cpp:72] Note that future Caffe releases will only support input layers and not input fields.
+I0711 14:03:38.452435  1802 face_re_id.cpp:104] detectFace: Detect Face Nums=1
+I0711 14:03:38.456861  1802 face_re_id.cpp:144] ###detect time cost:0.309362s
+I0711 14:03:38.456928  1802 face_re_id.cpp:151] i=0 Score=0.998918
+I0711 14:03:38.517531  1802 face_re_id.cpp:258] GetFaceQuality: Detect Face Nums=1
+I0711 14:03:38.549587  1802 face_re_id.cpp:275] LR=[6.09996] UD=[5.13217] Horizontal=[-1.36586] clarity=[550.088] Thresh=[0.8] Score=[0.947044]
+I0711 14:03:38.549657  1802 openailabfaceapi.cpp:88] Good Quality Face!!
+I0711 14:03:38.663625  1802 face_re_id.cpp:104] detectFace: Detect Face Nums=1
+I0711 14:03:38.787786  1802 face_re_id.cpp:104] detectFace: Detect Face Nums=2
+I0711 14:03:38.892812  1802 face_re_id.cpp:104] detectFace: Detect Face Nums=2
+I0711 14:03:39.005141  1802 face_re_id.cpp:104] detectFace: Detect Face Nums=3
+I0711 14:03:39.113117  1802 face_re_id.cpp:104] detectFace: Detect Face Nums=2
+I0711 14:03:39.532613  1802 face_re_id.cpp:191] ###extract feature time cost:0.419391s
+I0711 14:03:39.532636  1802 face_re_id.cpp:192] Pic nums=5 Detect face nums=5 feature size=5
+I0711 14:03:39.532639  1802 face_re_id.cpp:199] Thresh[0.5] [0][1] score[0.542451]
+I0711 14:03:39.532642  1802 face_re_id.cpp:199] Thresh[0.5] [0][2] score[0.56762]
+I0711 14:03:39.532645  1802 face_re_id.cpp:199] Thresh[0.5] [0][3] score[0.544855]
+I0711 14:03:39.532647  1802 face_re_id.cpp:199] Thresh[0.5] [0][4] score[0.563486]
+I0711 14:03:39.532650  1802 face_re_id.cpp:199] Thresh[0.5] [1][2] score[0.955001]
+I0711 14:03:39.532652  1802 face_re_id.cpp:199] Thresh[0.5] [1][3] score[0.940312]
+I0711 14:03:39.532655  1802 face_re_id.cpp:199] Thresh[0.5] [1][4] score[0.857252]
+I0711 14:03:39.532657  1802 face_re_id.cpp:199] Thresh[0.5] [2][3] score[0.937361]
+I0711 14:03:39.532660  1802 face_re_id.cpp:199] Thresh[0.5] [2][4] score[0.915744]
+I0711 14:03:39.532661  1802 face_re_id.cpp:199] Thresh[0.5] [3][4] score[0.865014]
+I0711 14:03:39.532672  1802 openailabfaceapi.cpp:159] Same Face!!!
+I0711 14:03:39.538842  1802 face_re_id.cpp:220] GetBestQualityFace: img nums=5
+I0711 14:03:39.589263  1802 face_re_id.cpp:258] GetFaceQuality: Detect Face Nums=1
+I0711 14:03:39.589530  1802 face_re_id.cpp:275] LR=[6.09996] UD=[5.13217] Horizontal=[-1.36586] clarity=[550.088] Thresh=[0.8] Score=[0.947044]
+I0711 14:03:39.589545  1802 face_re_id.cpp:227] img[0] score:[0.947044]
+I0711 14:03:39.707463  1802 face_re_id.cpp:258] GetFaceQuality: Detect Face Nums=2
+I0711 14:03:39.707865  1802 face_re_id.cpp:275] LR=[2.10442] UD=[-7.12676] Horizontal=[0.369713] clarity=[428.579] Thresh=[0.8] Score=[0.958151]
+I0711 14:03:39.707881  1802 face_re_id.cpp:227] img[1] score:[0.958151]
+I0711 14:03:39.819020  1802 face_re_id.cpp:258] GetFaceQuality: Detect Face Nums=2
+I0711 14:03:39.819275  1802 face_re_id.cpp:275] LR=[0.590854] UD=[-7.74359] Horizontal=[0.0282657] clarity=[439.74] Thresh=[0.8] Score=[0.962895]
+I0711 14:03:39.819317  1802 face_re_id.cpp:227] img[2] score:[0.962895]
+I0711 14:03:39.927731  1802 face_re_id.cpp:258] GetFaceQuality: Detect Face Nums=3
+I0711 14:03:39.927984  1802 face_re_id.cpp:275] LR=[1.8633] UD=[-5.26447] Horizontal=[0.252374] clarity=[460.348] Thresh=[0.8] Score=[0.96776]
+I0711 14:03:39.927997  1802 face_re_id.cpp:227] img[3] score:[0.96776]
+I0711 14:03:40.035753  1802 face_re_id.cpp:258] GetFaceQuality: Detect Face Nums=2
+I0711 14:03:40.035998  1802 face_re_id.cpp:275] LR=[4.544] UD=[5.52743] Horizontal=[-1.25182] clarity=[367.785] Thresh=[0.8] Score=[0.952456]
+I0711 14:03:40.036011  1802 face_re_id.cpp:227] img[4] score:[0.952456]
+I0711 14:03:40.036015  1802 openailabfaceapi.cpp:191] The best quality face index=[3]

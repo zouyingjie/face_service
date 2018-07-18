@@ -1,0 +1,14 @@
+Log file created at: 2018/07/11 15:47:40
+Running on machine: ubuntu
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I0711 15:47:40.051206  1962 upgrade_proto.cpp:77] Attempting to upgrade batch norm layers using deprecated params: /home/honggui/openailab_faceapi/models/rec_c
+I0711 15:47:40.051357  1962 upgrade_proto.cpp:80] Successfully upgraded batch norm layers using deprecated params.
+I0711 15:47:40.052708  1962 upgrade_proto.cpp:67] Attempting to upgrade input file specified using deprecated input fields: /home/honggui/openailab_faceapi/models/fnet_p
+I0711 15:47:40.052719  1962 upgrade_proto.cpp:70] Successfully upgraded file specified using deprecated input fields.
+W0711 15:47:40.052721  1962 upgrade_proto.cpp:72] Note that future Caffe releases will only support input layers and not input fields.
+I0711 15:47:40.054003  1962 upgrade_proto.cpp:67] Attempting to upgrade input file specified using deprecated input fields: /home/honggui/openailab_faceapi/models/snet_p
+I0711 15:47:40.054011  1962 upgrade_proto.cpp:70] Successfully upgraded file specified using deprecated input fields.
+W0711 15:47:40.054013  1962 upgrade_proto.cpp:72] Note that future Caffe releases will only support input layers and not input fields.
+I0711 15:47:40.057353  1962 upgrade_proto.cpp:67] Attempting to upgrade input file specified using deprecated input fields: /home/honggui/openailab_faceapi/models/tnet_p
+I0711 15:47:40.057361  1962 upgrade_proto.cpp:70] Successfully upgraded file specified using deprecated input fields.
+W0711 15:47:40.057363  1962 upgrade_proto.cpp:72] Note that future Caffe releases will only support input layers and not input fields.
