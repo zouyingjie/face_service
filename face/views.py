@@ -1,11 +1,12 @@
-from django.views.generic import View
+from orange.views.base import QingChengBaseApiGetMixin
+
 from face.service import FaceIdService
 
-class FaceValidApiView(View):
+class FaceValidApiView(QingChengBaseApiGetMixin):
 
-    def get(self, request, *args, **kwargs):
+    def get_request_params(self, request, *args, **kwargs):
 
-        params = request.GET.dict()
+        params = self.get_params(request, *args)
         photo = params.pop('photo', None)
         old_photos = params.pop('old_photos', None)
         photo_path = FaceIdService.download_photos(photo_url=photo)
@@ -17,6 +18,7 @@ class FaceValidApiView(View):
                 old_photo_paths.append(path)
             params['old_photos'] = old_photo_paths
 
+    def get_action_format(self, params, request, *args, **kwargs):
         photo = params.pop('photo', None)
         service = FaceIdService()
         is_valid, code = service.face_valid(photo=photo)
