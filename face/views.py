@@ -17,6 +17,7 @@ class FaceValidApiView(QingChengBaseApiGetMixin):
                 path = FaceIdService.download_photos(photo_url=photo)
                 old_photo_paths.append(path)
             params['old_photos'] = old_photo_paths
+        return params
 
     def get_action_format(self, params, request, *args, **kwargs):
         photo = params.pop('photo', None)
