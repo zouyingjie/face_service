@@ -84,3 +84,97 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s '
+                      '%(process)d %(thread)d %(pathname)s '
+                      '%(lineno)s %(funcName)s %(message)s',
+        },
+    },
+    'filters': {
+        'require_debug_false': {
+            '()': 'django.utils.log.RequireDebugFalse',
+        },
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue',
+        },
+        'info': {
+            '()': 'libs.logs.InfoFilter',
+        },
+        'warning': {
+            '()': 'libs.logs.WarningFilter',
+        },
+    },
+    'handlers': {
+        'null': {
+            'level': 'DEBUG',
+            'class': 'logging.NullHandler',
+        },
+        'console': {
+            'level': 'INFO',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+        },
+        'sentry': {
+            'level': 'ERROR',
+            'filters': ['require_debug_false'],
+            'class': 'raven.contrib.django.raven_compat.'
+                     'handlers.SentryHandler',
+        },
+        'project_info': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.TimedRotatingFileHandler',
+            'filename': "{PROJECT_HOME}/data/logs/info.log".
+            format(PROJECT_HOME=PROJECT_HOME),
+            'formatter': 'verbose',
+            'filters': ['require_debug_false', 'info'],
+        },
+        'project_warning': {
+            'level': 'WARNING',
+            'class': 'logging.handlers.TimedRotatingFileHandler',
+            'filename': "{PROJECT_HOME}/data/logs/warning.log".
+            format(PROJECT_HOME=PROJECT_HOME),
+            'formatter': 'verbose',
+            'filters': ['require_debug_false', 'warning'],
+        },
+
+    },
+    'loggers': {
+        '': {
+            'level': 'DEBUG',
+            'handlers': ['console', 'project_info',
+                         'project_warning', 'sentry'],
+        },
+
+        'libs': {
+            'level': 'DEBUG',
+            'handlers': ['console', 'project_info',
+                         'project_warning', 'sentry'],
+            'propagate': False,
+        },
+
+        'django': {
+            'level': 'ERROR',
+            'handlers': ['console', 'project_info',
+                         'project_warning', 'sentry'],
+            'propagate': False,
+        },
+
+        # 数据收集logger,注意不能有同名的包（八成也不会有了
+        'qcdata': {
+            'level': 'INFO',
+            'handlers': ['console', 'qcdata'],
+            'propagate': False,
+        },
+
+        # DisallowedHost 不记录日志
+        'django.security.DisallowedHost': {
+            'handlers': ['null'],
+            'propagate': False,
+        },
+    },
+}
