@@ -164,12 +164,6 @@ LOGGING = {
             'propagate': False,
         },
 
-        'qcdata': {
-            'level': 'INFO',
-            'handlers': ['console', 'qcdata'],
-            'propagate': False,
-        },
-
         'django.security.DisallowedHost': {
             'handlers': ['null'],
             'propagate': False,
