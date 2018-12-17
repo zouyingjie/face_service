@@ -164,17 +164,6 @@ LOGGING = {
             'propagate': False,
         },
 
-        # 数据收集logger,注意不能有同名的包（八成也不会有了
-        'qcdata': {
-            'level': 'INFO',
-            'handlers': ['console', 'qcdata'],
-            'propagate': False,
-        },
 
-        # DisallowedHost 不记录日志
-        'django.security.DisallowedHost': {
-            'handlers': ['null'],
-            'propagate': False,
-        },
     },
 }
