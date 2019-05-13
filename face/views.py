@@ -24,4 +24,10 @@ class FaceValidApiView(QingChengBaseApiGetMixin):
         service = FaceIdService()
         is_valid, code = service.face_valid(photo=photo)
         service.deinitial()
+        self.trigger_after_valid(path=photo)
         return {"is_valid": is_valid, "code": code}
+
+    def trigger_after_valid(self, path):
+        import os
+        if os.path.exists(path=path):
+            os.remove(path=path)
