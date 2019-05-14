@@ -5,7 +5,6 @@ from face.service import FaceIdService
 class FaceValidApiView(QingChengBaseApiGetMixin):
 
     def get_request_params(self, request, *args, **kwargs):
-
         params = self.get_params(request, *args)
         photo = params.pop('photo', None)
         old_photos = params.pop('old_photos', None)
