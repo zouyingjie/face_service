@@ -22,5 +22,5 @@ class Command(BaseCommand):
         os.system(shell_command)
 
         log_path = "%s/data/logs/%s*" % (PROJECT_HOME, date_to_str(yesterday.date()).replace('-', ""))
-        shell_command = "rm -rf %s" % path
+        shell_command = "rm -rf %s" % log_path
         os.system(shell_command)
