@@ -21,7 +21,7 @@ django-redis==4.7.0
 django-uuslug==1.0.2
 futures==2.2.0
 gunicorn==19.1.0
-html5lib==0.999
+html5lib==0.999999999
 icalendar==3.6.2
 kombu==3.0.37
 MySQL-python==1.2.5
